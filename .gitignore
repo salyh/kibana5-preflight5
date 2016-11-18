@@ -1,0 +1,6 @@
+kibana/
+node_modules/
+npm-debug.log
+preflight5/build/
+preflight5/node_modules/
+testinstall/
