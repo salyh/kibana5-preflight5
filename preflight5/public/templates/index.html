@@ -1,0 +1,54 @@
+<!--<div class="container" ng-controller="mainController">
+  <div class="row">
+    <div class="col-12-sm">
+      <div class="well">
+        <h2>Congratulations</h2>
+        <p class="lead">You've successfully created your first Kibana Plugin!</p>
+      </div>
+      <h1>{{ title }}</h1>
+      <p class="lead">{{ description }}</p>
+      <p>The current time is {{ ctrl.preflightInfo.clusterhealth.cluster_name }}</p>
+      <p>The current time is {{ ctrl.preflightInfo}}</p>
+    </div>
+  </div>
+</div>
+-->
+<div class="container" ng-controller="mainController">
+
+  <div class="well">
+    <h2 class="title">Elasticsearch Preflight Check</h2>
+    <p class="lead">Sanitychecks for your cluster</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    <table class="table table-condensed table-bordered table-striped">
+    <tr>
+      <td>Cluster:</td><td><b>{{ ctrl.preflightInfo.clusterhealth.cluster_name }}</b></td>
+    </tr>
+    <tr>
+      <td>Status:</td><td style="color:{{ modified_cluster_color }}"}><b>{{ ctrl.preflightInfo.clusterhealth.status }}</b></td>
+    </tr>
+    <tr>
+      <td>Number of Nodes:</td><td><b>{{ ctrl.preflightInfo.clusterhealth.number_of_nodes }}</b></td>
+    </tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="row" ng-repeat="result in ctrl.preflightInfo.results | orderBy:'-status'">
+      <div class="col-12-m">
+        <div class=" panel" ng-class="{'panel-danger': result.status == 2,
+                                       'panel-success': result.status == 0,
+                                       'panel-warning': result.status == 1}">
+          <div class="panel-heading"><h4 class="panel-title">{{ result.title }}</h4></div>
+          <div class="panel-body">
+            {{ result.description }}
+          </div>
+          <div class="panel-footer" ng-if="result.reference">
+            <a href="{{ result.reference }}">Documentation Reference</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

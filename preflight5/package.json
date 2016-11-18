@@ -1,0 +1,25 @@
+{
+  "name": "preflight_5",
+  "version": "5.0.1",
+  "description": "An awesome Kibana plugin1",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint",
+    "start": "plugin-helpers start",
+    "test:server": "plugin-helpers test_server",
+    "test:browser": "plugin-helpers test_browser",
+    "build": "plugin-helpers build",
+    "postinstall": "plugin-helpers postinstall"
+  },
+  "dependencies": {
+    "jsonpath": "^0.2.2",
+    "jsonpath-plus": "^0.14.0"
+  },
+  "devDependencies": {
+    "@elastic/eslint-config-kibana": "0.0.2",
+    "babel-eslint": "4.1.8",
+    "eslint": "1.10.3",
+    "eslint-plugin-mocha": "1.1.0",
+    "@elastic/plugin-helpers": "5.0.1-patch1"
+  }
+}
