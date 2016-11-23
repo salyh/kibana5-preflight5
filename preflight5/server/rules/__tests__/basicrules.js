@@ -1,4 +1,4 @@
-import expect from 'expect.js';
+/*import expect from 'expect.js';
 import masterNodes from '../masterNodes';
 
 
@@ -19,4 +19,4 @@ describe('Odd Number of Data Nodes Rule', function () {
   it('odd number of data nodes leads to success', function () {
     expect (masterNodes.oddNumberOfDataNodes(testData(3)).status).to.be('green');
   });
-});
+});*/

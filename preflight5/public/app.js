@@ -18,8 +18,8 @@ uiRoutes
 uiModules
 .get('app/preflight_5', [])
 .controller('mainController', function ($scope, $route, $interval, $http) {
-  $scope.title = 'Preflight 5e';
-  $scope.description = 'An awesome Kibana plugin44';
+  $scope.title = 'Elasticsearch Preflight Check';
+  $scope.description = 'Sanitychecks for your cluster';
 
   console.log("exec");
 

@@ -1,4 +1,4 @@
-import exampleRoute from './server/routes/example';
+import mainRoute from './server/routes/main';
 
 export default function (kibana) {
   return new kibana.Plugin({
@@ -7,9 +7,10 @@ export default function (kibana) {
     uiExports: {
 
       app: {
-        title: 'Preflight check',
-        description: 'An awesome Kibana plugin2',
-        main: 'plugins/preflight_5/app'
+        title: 'Preflight Check',
+        description: 'Health check for elasticsearch',
+        main: 'plugins/preflight_5/app',
+        icon: 'plugins/preflight_5/cc.png',
       },
 
 
@@ -27,8 +28,7 @@ export default function (kibana) {
 
 
     init(server, options) {
-      // Add server routes and initalize the plugin here
-      exampleRoute(server);
+      mainRoute(server);
     }
 
 

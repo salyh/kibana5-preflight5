@@ -19,15 +19,16 @@ export default function (server) {
         //console.log(basicrules.oddNumberOfNodes);
 
         let rules = [];
-        rules.push(basicrules.oddNumberOfNodes);
-        rules.push(basicrules.oddNumberOfDataNodes);
-        rules.push(basicrules.test);
+        rules.push(basicrules.oddNumberOfMasterNodes);
+        rules.push(basicrules.mlock);
+        rules.push(basicrules.maxFileDescriptors);
         rules.push(basicrules.minThreeMasterNodes);
         rules.push(basicrules.mixedEsVersions);
         rules.push(basicrules.mixedJavaVersions);
         rules.push(basicrules.oldJavaVersions);
         rules.push(basicrules.cpuCount);
-
+        rules.push(basicrules.clusterName);
+        rules.push(basicrules.pendingTasks);
 
         var preflightInfo = {};
         var results = [];

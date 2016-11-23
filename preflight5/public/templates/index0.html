@@ -1,0 +1,114 @@
+<div class="container" ng-controller="mainController">
+
+  <div class="well">
+    <h2 class="title">{{ title }}</h2>
+    <p class="lead">{{ description }}</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-condensed table-bordered table-striped">
+        <tr>
+          <td>Cluster:</td>
+          <td><b>{{ ctrl.preflightInfo.clusterhealth.cluster_name }}</b></td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td style="color:{{ modified_cluster_color }}" }><b>{{ ctrl.preflightInfo.clusterhealth.status }}</b></td>
+        </tr>
+        <tr>
+          <td>Number of Nodes:</td>
+          <td><b>{{ ctrl.preflightInfo.clusterhealth.number_of_nodes }}</b></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <table class="table">
+    <tr class="col-md-12">
+
+      <td class="col-md-4">
+        <table class="table">
+          <tr>
+            <td>
+              <div class="row" ng-repeat="result in ctrl.preflightInfo.results | filter: { status: 2}">
+                <div>
+                  <div class=" panel" ng-class="{'panel-danger': result.status == 2,
+                                         'panel-success': result.status == 0,
+                                         'panel-warning': result.status == 1}">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">{{ result.title }}</h4></div>
+                    <div class="panel-body collapse in">
+                      {{ result.description }}
+                    </div>
+                    <div class="panel-footer collapse out" ng-if="result.reference">
+                      <a href="{{ result.reference }}">Documentation Reference</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+
+      <td class="col-md-4">
+        <table class="table">
+          <tr>
+            <td>
+              <div class="row" ng-repeat="result in ctrl.preflightInfo.results | filter: { status: 1}">
+                <div>
+                  <div class=" panel" ng-class="{'panel-danger': result.status == 2,
+                                         'panel-success': result.status == 0,
+                                         'panel-warning': result.status == 1}">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">{{ result.title }}</h4></div>
+                    <div class="panel-body collapse in">
+                      {{ result.description }}
+                    </div>
+                    <div class="panel-footer collapse out" ng-if="result.reference">
+                      <a href="{{ result.reference }}">Documentation Reference</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+
+      <td class="col-md-4">
+        <table class="table">
+          <tr>
+            <td>
+              <div class="row" ng-repeat="result in ctrl.preflightInfo.results | filter: { status: 0}">
+                <div>
+                  <div class=" panel" ng-class="{'panel-danger': result.status == 2,
+                                         'panel-success': result.status == 0,
+                                         'panel-warning': result.status == 1}">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">{{ result.title }}</h4></div>
+                    <div class="panel-body collapse in">
+                      {{ result.description }}
+                    </div>
+                    <div class="panel-footer collapse out" ng-if="result.reference">
+                      <a href="{{ result.reference }}">Documentation Reference</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+
+    </tr>
+  </table>
+
+
+
+
+</div>
